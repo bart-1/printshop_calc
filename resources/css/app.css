@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-[x-cloak] {
-    display: none;
+@layer base {
+    body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        @apply h-screen w-screen light-bg dark:dark-bg;
+    }
 }
+@layer components {
+    .dark-bg {
+        opacity: 1;
+        background-image: radial-gradient(
+            #4e4d41 1.2000000000000002px,
+            #1e1e1f 1.2000000000000002px
+        );
+        background-size: 24px 24px;
+    }
+    .light-bg {
+        opacity: 1;
+        background-image: radial-gradient(
+            #c5e3e6 1.2000000000000002px,
+            #809aaa 1.2000000000000002px
+        );
+        background-size: 24px 24px;
+    }
+}
+/*
+@layer base {
+    body {
+
+        @apply bg-gradient-radial from-[#4e4d41]  to-red-500;
+    }
+} */

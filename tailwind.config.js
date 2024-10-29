@@ -1,24 +1,36 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
-import forms from '@tailwindcss/forms';
-import typography from '@tailwindcss/typography';
+import defaultTheme from "tailwindcss/defaultTheme";
+import forms from "@tailwindcss/forms";
 
-/** @type {import('tailwindcss').Config} */
-export default {
+/** @type {import('tailwindcss').Config}*/
+
+module.exports = {
     content: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-        './vendor/laravel/jetstream/**/*.blade.php',
-        './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
-        './resources/js/**/*.vue',
+        "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
+        "./storage/framework/views/*.php",
+        "./resources/views/**/*.blade.php",
+        "./resources/ts/**/*.tsx",
     ],
+
+    darkMode: "class",
 
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ["Lato", ...defaultTheme.fontFamily.sans],
+            },
+            colors: {
+                mygray: {
+                    lighter: "#333335",
+                    normal: "#1e1e1f",
+                    darker: "#19191a",
+                },
+                myyellowgray: "#4e4d41",
+            },
+            backgroundImage: {
+                "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
             },
         },
     },
 
-    plugins: [forms, typography],
+    plugins: [forms],
 };
