@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
   $this->call(LargeFormatPricesSeeder::class);
   $this->call(DimesionsAndMultipliersSeeder::class);
   $this->call(PlotterCutPricesSeeder::class);
+  $this->call(DiscountProductsSeeder::class);
 
  }
 }
