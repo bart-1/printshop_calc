@@ -101,6 +101,13 @@ class A4PrintAndPapersPricesSeeder extends Seeder
    'created_at'     => now(),
    'updated_at'     => now(),
    'threshold_from' => 1,
+   'threshold_to'   => 9,
+   'price'          => 3.7,
+  ]);
+  DB::table('a4_color_print_prices')->insert([
+   'created_at'     => now(),
+   'updated_at'     => now(),
+   'threshold_from' => 10,
    'threshold_to'   => 19,
    'price'          => 2.95,
   ]);
