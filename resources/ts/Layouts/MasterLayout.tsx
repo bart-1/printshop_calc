@@ -6,6 +6,7 @@ import Dropdown from "../Components/Dropdown";
 import { BsList } from "react-icons/bs";
 import { route } from "../../../vendor/tightenco/ziggy/src/js";
 import { PageProps } from "@inertiajs/inertia";
+import AdminMenu from "../Components/AdminMenu";
 
 interface MasterLayoutProps {
     children: ReactNode | ReactNode[];
@@ -17,6 +18,7 @@ export interface InertiaProps extends PageProps {
             id: number;
             name: string;
             email: string;
+            role_id: number;
             discount: number;
             discount_products_list: string;
             created_at: Date;
@@ -27,11 +29,18 @@ export interface InertiaProps extends PageProps {
     version: string;
 }
 const MasterLayout = ({ children }: MasterLayoutProps) => {
-    const { auth, version } = usePage<InertiaProps>().props;
+    const { auth, version} = usePage<InertiaProps>().props;
     return (
         <>
             <div className=" w-full h-12 fixed top-0 flex justify-items-stretch">
                 <ThemeToggleSwitch className="align-middle self-center scale-90" />
+                <div className="m-auto w-full flex gap-5 justify-center align-middle p-3 bg-indigo-950/50 dark:bg-black/50 shadow-xl  rounded-xl">
+                    {auth.user && auth.user.role_id === 1 ? (
+                        <AdminMenu routes={["/welcome", "/admin"]} />
+                    ) : (
+                        ""
+                    )}
+                </div>
                 <div className="grow"></div>
                 <div className="self-center px-4">
                     {auth.user ? (
@@ -90,7 +99,7 @@ const MasterLayout = ({ children }: MasterLayoutProps) => {
                     </div>
                 </Link>
             ) : (
-              <div className="h-20"></div>
+                <div className="h-20"></div>
             )}
             <div className="flex justify-center m-auto">{children}</div>
 
