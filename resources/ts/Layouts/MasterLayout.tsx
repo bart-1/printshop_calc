@@ -4,6 +4,7 @@ import ThemeToggleSwitch from "../Components/ThemeToggleSwitch";
 import { Link, usePage } from "@inertiajs/react";
 import Dropdown from "../Components/Dropdown";
 import { BsList } from "react-icons/bs";
+import { route } from "../../../vendor/tightenco/ziggy/src/js";
 import { PageProps } from "@inertiajs/inertia";
 
 interface MasterLayoutProps {
