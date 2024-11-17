@@ -1,62 +1,25 @@
 import { ChangeEvent, ReactNode, useEffect, useState } from "react";
 import ContentBoxSection from "../Components/ContentBoxSection";
 import RadioInputsSection from "../Components/RadioInputsSection";
-import { Head, Link, usePage } from "@inertiajs/react";
-import MasterLayout, { InertiaProps } from "../Layouts/MasterLayout";
-import {
-    discontTester,
-    findElemntInJSONString,
-    findValueByThersholds,
-} from "../helpers";
-import CheckboxInputsSection from "../Components/CheckboxInputSection";
+import { Head, usePage } from "@inertiajs/react";
+import MasterLayout from "../Layouts/MasterLayout";
+import { findValueByThersholds } from "../helpers";
 import PageTitle from "../Components/PageTitle";
+import { PageProps } from "@inertiajs/inertia";
+import {
+    AuthProps,
+    ColorPrintPrices,
+    FoldStaplePrices,
+    LaminationPrices,
+    MinPrices,
+    SubstratePrices,
+} from "../inertiaPropsTypes";
 
 interface SmallFormatCalculatorProps {
     className: string;
 }
 
-type SubstratePrices = {
-    name: string;
-    price: number;
-};
-type ColorPrintPrices = {
-    threshold_from: number;
-    threshold_to: number;
-    price: number;
-};
-type FoldStaplePrices = {
-    threshold_from: number;
-    threshold_to: number;
-    staple: number;
-    fold: number;
-    binder_staple: number;
-};
-type MinPrices = {
-    small_cut_min: number;
-    roll_lamin_min: number;
-    plotter_cut_min: number;
-    laser_cut_min: number;
-    cut_min: number;
-    large_format_color_print_min: number;
-};
-type LaminationPrices = {
-    threshold_from: number;
-    threshold_to: number;
-    a4_roll_mat: number;
-    a4_roll_gloss: number;
-    a4_roll_soft: number;
-    a3_100mic: number;
-    a3_250mic: number;
-    a4_100mic: number;
-    a4_250mic: number;
-    a5_100mic: number;
-    a5_250mic: number;
-    a6_100mic: number;
-    a6_250mic: number;
-    bc_200mic: number;
-};
-
-interface ColorCalc extends InertiaProps {
+interface ColorCalc extends PageProps {
     substratePrices: SubstratePrices[];
     colorPrintPrices: ColorPrintPrices[];
     foldStaplePrices: FoldStaplePrices[];
@@ -74,7 +37,7 @@ const SmallFormatCalculator = ({ className }: SmallFormatCalculatorProps) => {
         minPrices,
         laminationPrices,
     } = usePage<ColorCalc>().props;
-    const { auth } = usePage<InertiaProps>().props;
+    const { auth } = usePage<AuthProps>().props;
 
     const [quantity, setQuantity] = useState(1);
     const [printSidesMultiplier, setPrintSidesMultiplier] = useState(1);

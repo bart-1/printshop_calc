@@ -5,31 +5,15 @@ import { Link, usePage } from "@inertiajs/react";
 import Dropdown from "../Components/Dropdown";
 import { BsList } from "react-icons/bs";
 import { route } from "../../../vendor/tightenco/ziggy/src/js";
-import { PageProps } from "@inertiajs/inertia";
 import AdminMenu from "../Components/AdminMenu";
+import { AuthProps } from "../inertiaPropsTypes";
 
 interface MasterLayoutProps {
     children: ReactNode | ReactNode[];
 }
 
-export interface InertiaProps extends PageProps {
-    auth: {
-        user: {
-            id: number;
-            name: string;
-            email: string;
-            role_id: number;
-            discount: number;
-            discount_products_list: string;
-            created_at: Date;
-            updated_at: Date;
-            email_verified_at: string;
-        };
-    };
-    version: string;
-}
 const MasterLayout = ({ children }: MasterLayoutProps) => {
-    const { auth, version} = usePage<InertiaProps>().props;
+    const { auth, version} = usePage<AuthProps>().props;
     return (
         <>
             <div className=" w-full h-12 fixed top-0 flex justify-items-stretch">

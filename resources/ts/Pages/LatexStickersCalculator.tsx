@@ -3,67 +3,18 @@ import ContentBoxSection from "../Components/ContentBoxSection";
 import RadioInputsSection, {
     RadioInputProps,
 } from "../Components/RadioInputsSection";
-import { Head, Link, usePage } from "@inertiajs/react";
-import MasterLayout, { InertiaProps } from "../Layouts/MasterLayout";
+import { Head, usePage } from "@inertiajs/react";
+import MasterLayout from "../Layouts/MasterLayout";
 import { findValueByThersholds, isNameISOFormat } from "../helpers";
 import PageTitle from "../Components/PageTitle";
+import { AuthProps, Bindery, Formats, LargeFormatColorPrintPrices, MinPrices, PlotterCutPrices } from "../inertiaPropsTypes";
+import { PageProps } from "@inertiajs/inertia";
 
 interface SmallFormatCalculatorProps {
     className: string;
 }
 
-type Formats = {
-    name: string;
-    width: number;
-    height: number;
-    small_format_sheet_width: number;
-    small_format_sheet_height: number;
-    small_format_multiplier: number;
-    small_format_sheet_set: number;
-    large_format_sheet_width: number;
-    large_format_sheet_height: number;
-    large_format_sheet_area: number;
-    large_format_multiplier: number;
-    large_format_cut_to_sheet_width: number;
-    large_format_cut_to_sheet_height: number;
-    large_format_cut_to_sheet_area: number;
-    large_format_cut_to_multiplier: number;
-    large_format_sheet_set: number;
-};
-
-type LargeFormatColorPrintPrices = {
-    threshold_from: number;
-    threshold_to: number;
-    paper: number;
-    sticker_foil: number;
-    sticker_foil_easy_dot: number;
-    blockout: number;
-    canvas: number;
-};
-type PlotterCutPrices = {
-    plotter_cut: number;
-    plotter_A3_cut: number;
-    plotter_A3_max_cut: number;
-    removal_foil: number;
-    transfer_foil_m2: number;
-};
-
-type MinPrices = {
-    small_cut_min: number;
-    roll_lamin_min: number;
-    plotter_cut_min: number;
-    laser_cut_min: number;
-    cut_min: number;
-    large_format_color_print_min: number;
-};
-type Bindery = {
-    cut_1h: number;
-    cut_boards_5pcs: number;
-    cut_stickers_from_roll_10pcs: number;
-    cut_stickers_set: number;
-};
-
-interface LatexStickersCalc extends InertiaProps {
+interface LatexStickersCalc extends PageProps {
     formats: Formats[];
     plotterCutPrices: PlotterCutPrices[];
     largeFormatPrintPrices: LargeFormatColorPrintPrices[];
@@ -79,7 +30,7 @@ const SmallFormatCalculator = ({ className }: SmallFormatCalculatorProps) => {
         formats,
         bindery,
     } = usePage<LatexStickersCalc>().props;
-    const { auth } = usePage<InertiaProps>().props;
+    const { auth } = usePage<AuthProps>().props;
 
     const substrates = Object.keys(largeFormatPrintPrices[0]).filter((key) => {
         if (/^sticker/.test(key)) {
