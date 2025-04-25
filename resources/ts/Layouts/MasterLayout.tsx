@@ -18,13 +18,12 @@ const MasterLayout = ({ children }: MasterLayoutProps) => {
         <>
             <div className=" w-full h-12 fixed top-0 flex justify-items-stretch">
                 <ThemeToggleSwitch className="align-middle self-center scale-90" />
-                <div className="m-auto w-full flex gap-5 justify-center align-middle p-3 bg-indigo-950/50 dark:bg-black/50 shadow-xl  rounded-xl">
-                    {auth.user && auth.user.role_id === 1 ? (
+                 {auth.user && auth.user.role_id === 1 ? <div className="m-auto w-full flex gap-5 justify-center align-middle p-3 bg-indigo-950/50 dark:bg-black/50 shadow-xl  rounded-xl">
+
                         <AdminMenu routes={["/welcome", "/admin"]} />
-                    ) : (
-                        ""
-                    )}
                 </div>
+                     : (""
+                    )}
                 <div className="grow"></div>
                 <div className="self-center px-4">
                     {auth.user ? (

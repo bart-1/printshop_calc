@@ -1,4 +1,6 @@
 import {
+    DetailedHTMLProps,
+    HTMLAttributes,
     InputHTMLAttributes,
     RefObject,
     forwardRef,
@@ -10,8 +12,8 @@ export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement>{
     type?: string;
     className?: string;
     isFocused?: boolean;
-    // props: DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement>;
-    ref: RefObject<HTMLInputElement>;
+    props: DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+    ref?: RefObject<HTMLInputElement>;
 }
 
 const TextInput = forwardRef(function TextInput({
@@ -20,7 +22,7 @@ const TextInput = forwardRef(function TextInput({
     type = "text",
     ref,
     ...props
-}: TextInputProps) {
+}: TextInputProps ) {
     const input = ref ? ref : useRef<HTMLInputElement>(null);
 
     useEffect(() => {

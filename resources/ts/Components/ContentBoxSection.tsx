@@ -1,4 +1,4 @@
-import { Link } from "@inertiajs/inertia-react";
+import { Link } from "@inertiajs/react";
 import React, { ReactNode } from "react";
 import { IconContext } from "react-icons";
 import NavLink from "./NavLink";
@@ -20,8 +20,9 @@ const ContentBoxSection = ({
     return (
         <>
             <div
-                className={` p-6 min-h-56 bg-slate-300 dark:bg-mygray-darker/50 dark:bg-gradient-to-bl from-mygray-lighter/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-black/60 flex  transition-all duration-250 focus:outline focus:outline-2 border-[1px] border-mygray-normal hover:border-cyan-500 hover:dark:border-red-500 ${className}`}
+                className={` p-6 min-h-56 bg-slate-400 dark:bg-mygray-darker dark:bg-gradient-to-bl from-mygray-lighter/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-black/60 dark:shadow-black/60 flex  transition-all duration-250 focus:outline focus:outline-2 border-[1px] border-mygray-normal hover:border-cyan-500 hover:dark:border-red-500 ${className}`}
             >
+
                 <div>
                     {icon && (
                         <div className="h-16 w-16 bg-blue-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">

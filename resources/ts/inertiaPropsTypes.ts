@@ -27,7 +27,7 @@ export type PricesBC = {
     bc_lamin_mix: number;
     bc_lamin_none: number;
     bc_lamin_soft: number;
-};
+}
 
 export type Formats = {
     name: string;
@@ -46,7 +46,7 @@ export type Formats = {
     large_format_cut_to_sheet_area: number;
     large_format_cut_to_multiplier: number;
     large_format_sheet_set: number;
-};
+}
 
 export type LargeFormatColorPrintPrices = {
     threshold_from: number;
@@ -56,14 +56,14 @@ export type LargeFormatColorPrintPrices = {
     sticker_foil_easy_dot: number;
     blockout: number;
     canvas: number;
-};
+}
 export type PlotterCutPrices = {
     plotter_cut: number;
     plotter_A3_cut: number;
     plotter_A3_max_cut: number;
     removal_foil: number;
     transfer_foil_m2: number;
-};
+}
 
 export type MinPrices = {
     small_cut_min: number;
@@ -72,31 +72,32 @@ export type MinPrices = {
     laser_cut_min: number;
     cut_min: number;
     large_format_color_print_min: number;
-};
+}
 
 export type Bindery = {
     cut_1h: number;
     cut_boards_5pcs: number;
     cut_stickers_from_roll_10pcs: number;
     cut_stickers_set: number;
-};
+}
 
 export type SubstratePrices = {
     name: string;
     price: number;
-};
+}
+
 export type ColorPrintPrices = {
     threshold_from: number;
     threshold_to: number;
     price: number;
-};
+}
 export type FoldStaplePrices = {
     threshold_from: number;
     threshold_to: number;
     staple: number;
     fold: number;
     binder_staple: number;
-};
+}
 
 export type LaminationPrices = {
     threshold_from: number;
@@ -113,4 +114,4 @@ export type LaminationPrices = {
     a6_100mic: number;
     a6_250mic: number;
     bc_200mic: number;
-};
+}

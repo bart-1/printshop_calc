@@ -7,6 +7,7 @@ import { discontTester, findElemntInJSONString } from "../helpers";
 import PageTitle from "../Components/PageTitle";
 import { PageProps } from "@inertiajs/inertia";
 import { AuthProps, PricesBC } from "../inertiaPropsTypes";
+import imgPick from "../../../public/stack_of_bc.png";
 
 interface BcCalculatorProps {
     className: string;
@@ -20,10 +21,19 @@ export type Laminate =
     | "bc_lamin_none"
     | "bc_lamin_mix";
 
-
 interface Prices extends PageProps {
     prices: PricesBC[];
 }
+
+const icon = (
+    <img
+        className="rounded-full"
+        src={imgPick}
+        alt="bg"
+        width="200"
+        height="200"
+    />
+);
 
 const BcCalculator = ({ className }: BcCalculatorProps) => {
     const [quantity, setQuantity] = useState(100);
@@ -58,10 +68,10 @@ const BcCalculator = ({ className }: BcCalculatorProps) => {
     return (
         <div className={className}>
             <Head title="BC Calc" />
-            <PageTitle heavyTxt="BCards" lightTxt="Calc" />
+            <PageTitle heavyTxt="BCards" lightTxt="Calc" />{" "}
+            <div className="flex scale-90 flex-row">
 
-            <div className="scale-90">
-                <ContentBoxSection>
+                <ContentBoxSection icon ={icon}>
                     <fieldset className="w-[200px] border-2 border-indigo-950 dark:border-gray-400 p-3 gap-3 flex">
                         <legend className="px-2">quantity </legend>
 

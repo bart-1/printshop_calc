@@ -12,20 +12,32 @@
 }
 @layer components {
     .dark-bg {
-        opacity: 1;
-        background-image: radial-gradient(
+        /* opacity: 100; */
+        background-image: url("../../public/bg.jpg");
+
+          background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+        /* background-image: radial-gradient(
             #4e4d41 1.2000000000000002px,
             #1e1e1f 1.2000000000000002px
-        );
-        background-size: 24px 24px;
+        ); */
+        /* background-size: 24px 24px; */
     }
     .light-bg {
-        opacity: 1;
-        background-image: radial-gradient(
+           background-image: url("../../public/bg.jpg");
+
+          background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+        /* opacity: 1; */
+        /* background-image: radial-gradient(
             #c5e3e6 1.2000000000000002px,
             #809aaa 1.2000000000000002px
         );
-        background-size: 24px 24px;
+        background-size: 24px 24px; */
     }
 }
 /*
