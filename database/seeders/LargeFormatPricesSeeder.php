@@ -40,7 +40,7 @@ class LargeFormatPricesSeeder extends Seeder
    'created_at'     => now(),
    'updated_at'     => now(),
    'threshold_from' => 20.01,
-   'threshold_to'   => 1000,
+   'threshold_to'   => 0,
    'paper'    => 54,
    'sticker_foil'  => 52,
    'sticker_foil_easy_dot'   => 63,
