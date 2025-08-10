@@ -8,6 +8,7 @@ import PageTitle from "../Components/PageTitle";
 import { PageProps } from "@inertiajs/inertia";
 import { AuthProps, PricesBC } from "../inertiaPropsTypes";
 import imgPick from "../../../public/stack_of_bc.png";
+import ErrorDB from "./ErrorDB";
 
 interface BcCalculatorProps {
     className: string;
@@ -49,6 +50,8 @@ const BcCalculator = ({ className }: BcCalculatorProps) => {
         setLaminate("bc_lamin_none");
     }, []);
 
+    if (!auth.user || !prices) return (<ErrorDB/>);
+
     useEffect(() => {
         const quantityFilter = prices.filter((el) => el.threshold === quantity);
         const list =
@@ -69,6 +72,7 @@ const BcCalculator = ({ className }: BcCalculatorProps) => {
         <div className={className}>
             <Head title="BC Calc" />
             <PageTitle heavyTxt="BCards" lightTxt="Calc" />{" "}
+
             <div className="flex scale-90 flex-row">
 
                 <ContentBoxSection icon ={icon}>
