@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../../tailwind.config.js";
+
 
 @layer base {
     body {
@@ -10,14 +10,13 @@
         @apply h-screen w-screen light-bg dark:dark-bg bg-fixed;
     }
 }
-@layer components {
-    .dark-bg {
+@utility dark-bg {
         /* opacity: 100; */
         background-image: url("../../public/bg.jpg");
 
-          background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
 
         /* background-image: radial-gradient(
             #4e4d41 1.2000000000000002px,
@@ -25,12 +24,12 @@
         ); */
         /* background-size: 24px 24px; */
     }
-    .light-bg {
-           background-image: url("../../public/bg.jpg");
+    @utility light-bg {
+        background-image: url("../../public/bg.jpg");
 
-          background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
 
         /* opacity: 1; */
         /* background-image: radial-gradient(
@@ -39,7 +38,7 @@
         );
         background-size: 24px 24px; */
     }
-}
+
 /*
 @layer base {
     body {
