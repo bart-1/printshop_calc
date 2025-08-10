@@ -1,5 +1,4 @@
 <?php
-
 namespace Database\Seeders;
 
 use App\Models\User;
@@ -18,6 +17,7 @@ class AdminUserSeeder extends Seeder
    'password'          => bcrypt('7723'),
    'email_verified_at' => now(),
    'role_id'           => 1, // Administrator
+   'folder'            => 'admin',
   ]);
 
  }

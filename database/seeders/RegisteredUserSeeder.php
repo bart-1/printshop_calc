@@ -1,5 +1,4 @@
 <?php
-
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
@@ -14,10 +13,12 @@ class RegisteredUserSeeder extends Seeder
  public function run(): void
  {
   DB::table('users')->insert([
-   'name'                   => "bfagencja",
-   'email'                  => "bf@test.pl",
-   'password'               => Hash::make('test'),
-    'role_id'           => 3, // User
-   'discount'               => 10]);
+   'name'     => "bfagencja",
+   'email'    => "bf@test.pl",
+   'password' => Hash::make('test'),
+   'role_id'  => 3, // User
+   'discount' => 10,
+   'folder'   => 'bfagencja',
+  ]);
  }
 }
